@@ -1,13 +1,13 @@
 # Unleash the Power of Azure Open AI
 
 1. [Introduction](#introduction)
-1. [Solution Overview](/docs/1-introduction.md)
-1. [Deploy to Azure](#deploy-to-azure)
-1. [Run from your local machine](/docs/3-run-locally.md)
-1. [Deploy to Azure with GitHub Actions](/docs/4-deploy-to-azure.md)
-1. [Add identity provider](/docs/5-add-identity.md)
-1. [Chatting with your file](/docs/6-chat-over-file.md)
-1. [Environment variables](/docs/7-environment-variables.md)
+2. [Solution Overview](/docs/1-introduction.md)
+3. [Deploy to Azure](#deploy-to-azure)
+4. [Run from your local machine](/docs/3-run-locally.md)
+5. [Deploy to Azure with GitHub Actions](/docs/4-deploy-to-azure.md)
+6. [Add identity provider](/docs/5-add-identity.md)
+7. [Chatting with your file](/docs/6-chat-over-file.md)
+8. [Environment variables](/docs/7-environment-variables.md)
 
 # Introduction
 
