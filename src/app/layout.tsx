@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full overflow-hidden">
+    <html lang="en" className="h-full overflow-y-scroll">
       <body className={cn(inter.className, "flex w-full h-full")}>
         <GlobalConfigProvider
           config={{ speechEnabled: process.env.PUBLIC_SPEECH_ENABLED }}

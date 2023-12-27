@@ -38,7 +38,7 @@ const ChatInput: FC<Props> = (props) => {
   return (
     <form
       onSubmit={submit}
-      className="absolute bottom-0 w-full flex items-center"
+      className="absolute bottom-10 w-full flex items-center"
     >
       <div className="container mx-auto max-w-4xl relative py-2 flex gap-2 items-center">
         {fileCHatVisible && <ChatFileSlider />}
@@ -50,7 +50,7 @@ const ChatInput: FC<Props> = (props) => {
           onKeyUp={onKeyUp}
           onKeyDown={onKeyDown}
           onChange={onChange}
-        ></Textarea>
+        />
         <div className="absolute right-0 bottom-0 px-8 flex items-end h-full mr-2 mb-4">
           {speechEnabled && <Microphone disabled={isLoading} />}
           <Button

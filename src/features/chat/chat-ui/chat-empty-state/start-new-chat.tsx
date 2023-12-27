@@ -8,7 +8,7 @@ interface Prop {}
 
 export const StartNewChat: FC<Prop> = (props) => {
   return (
-    <div className="grid grid-cols-5 w-full items-center container mx-auto max-w-3xl justify-center h-full gap-9">
+    <div className="mt-12 overflow-y-scroll sm:mt-0 sm:grid sm:grid-cols-5 w-full items-center container mx-auto max-w-3xl justify-center h-full gap-9">
       <div className="col-span-2 gap-5 flex flex-col flex-1">
         <img src="/ai-icon.png" className="w-36" />
       </div>
@@ -18,9 +18,7 @@ export const StartNewChat: FC<Prop> = (props) => {
         </Typography>
         <div className="flex flex-col gap-2">
           <p className="">
-            Welcome to {AI_NAME}. You should interact in a friendly manner with
-            the AI assistant and refrain from participating in any harmful
-            activities.
+            Welcome to <span className="font-semibold">{AI_NAME}</span>.
           </p>
           <p>You can start a new chat with me by clicking the button below.</p>
         </div>
