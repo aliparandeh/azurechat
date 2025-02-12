@@ -1,16 +1,16 @@
 # Unleash the Power of Azure OpenAI
 
 1. [Introduction](#introduction)
-1. [Solution Overview](/docs/1-introduction.md)
-1. [Deploy to Azure](#deploy-to-azure)
-1. [Run from your local machine](/docs/3-run-locally.md)
-1. [Deploy to Azure with GitHub Actions](/docs/4-deploy-to-azure.md)
-1. [Add identity provider](/docs/5-add-identity.md)
-1. [Chatting with your file](/docs/6-chat-over-file.md)
-1. [Persona](/docs/6-persona.md)
-1. [Extensions](/docs/8-extensions.md)
-1. [Environment variables](/docs/9-environment-variables.md)
-1. [Migration considerations](/docs/migration.md)
+2. [Solution Overview](/docs/1-introduction.md)
+3. [Deploy to Azure](#deploy-to-azure)
+4. [Run from your local machine](/docs/3-run-locally.md)
+5. [Deploy to Azure with GitHub Actions](/docs/4-deploy-to-azure.md)
+6. [Add identity provider](/docs/5-add-identity.md)
+7. [Chatting with your file](/docs/6-chat-over-file.md)
+8. [Persona](/docs/6-persona.md)
+9. [Extensions](/docs/8-extensions.md)
+10. [Environment variables](/docs/9-environment-variables.md)
+11. [Migration considerations](/docs/migration.md)
 
 # Introduction
 
@@ -45,8 +45,8 @@ You can deploy the application using one of the following options:
 > This section will create Azure resources and deploy the solution from your local environment using the Azure Developer CLI. Note that you do not need to clone this repo to complete these steps.
 
 1. Download the [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/overview)
-1. If you have not cloned this repo, run `azd init -t microsoft/azurechat`. If you have cloned this repo, just run 'azd init' from the repo root directory.
-1. Run `azd up` to provision and deploy the application
+2. If you have not cloned this repo, run `azd init -t microsoft/azurechat`. If you have cloned this repo, just run 'azd init' from the repo root directory.
+3. Run `azd up` to provision and deploy the application
 
 ```pwsh
 azd init -t microsoft/azurechat
