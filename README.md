@@ -1,3 +1,5 @@
+[![Build & deploy Next.js app to Azure Web App](https://github.com/aliparandeh/azurechat/actions/workflows/open-ai-app.yml/badge.svg)](https://github.com/aliparandeh/azurechat/actions/workflows/open-ai-app.yml)
+
 # What's new - 2025
 
 A new year brings some much requested feature updates to one of our most popular AI chat repos!
