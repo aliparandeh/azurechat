@@ -25,6 +25,11 @@ class SpeechToText {
 
     this.isMicrophoneReady = true;
     this.isMicrophoneUsed = true;
+    
+    // If there's already a recognizer, stop it first to avoid multiple instances
+    if (speechRecognizer) {
+      speechRecognizer.stopContinuousRecognitionAsync();
+    }
 
     const speechConfig = SpeechConfig.fromAuthorizationToken(
       token.token,
@@ -49,8 +54,36 @@ class SpeechToText {
 
     speechRecognizer = recognizer;
 
+    // Track both the current interim text and the complete input without interim text
+    let interimText = '';
+    let baseInput = chatStore.input;
+
     recognizer.recognizing = (s, e) => {
-      chatStore.updateInput(e.result.text);
+      // Update only the interim recognition text
+      interimText = e.result.text;
+      // Display base input + current interim text
+      chatStore.updateInput(baseInput + interimText);
+    };
+
+    recognizer.recognized = (s, e) => {
+      // When recognition is finalized, add the final text to our base input
+      if (e.result.text) {
+        // Format the text properly before adding it
+        let finalText = e.result.text;
+        
+        // Add space before appending if needed (and if there's already a text)
+        if (baseInput && !baseInput.endsWith(' ') && !finalText.startsWith(' ')) {
+          finalText = ' ' + finalText;
+        }
+        
+        // Add the formatted text to our base
+        baseInput += finalText;
+        
+        // Update the input with just the base (no interim text)
+        chatStore.updateInput(baseInput);
+      }
+      // Reset the interim text
+      interimText = '';
     };
 
     recognizer.canceled = (s, e) => {
