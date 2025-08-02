@@ -25,6 +25,11 @@ class SpeechToText {
 
     this.isMicrophoneReady = true;
     this.isMicrophoneUsed = true;
+    
+    // If there's already a recognizer, stop it first to avoid multiple instances
+    if (speechRecognizer) {
+      speechRecognizer.stopContinuousRecognitionAsync();
+    }
 
     const speechConfig = SpeechConfig.fromAuthorizationToken(
       token.token,
@@ -49,8 +54,27 @@ class SpeechToText {
 
     speechRecognizer = recognizer;
 
+    let interimText = '';
+    let baseInput = chatStore.input;
+
     recognizer.recognizing = (s, e) => {
-      chatStore.updateInput(e.result.text);
+      interimText = e.result.text;
+      chatStore.updateInput(baseInput + interimText);
+    };
+
+    recognizer.recognized = (s, e) => {
+      if (e.result.text) {
+        let finalText = e.result.text;
+        
+        if (baseInput && !baseInput.endsWith(' ') && !finalText.startsWith(' ')) {
+          finalText = ' ' + finalText;
+        }
+        
+        baseInput += finalText;
+        
+        chatStore.updateInput(baseInput);
+      }
+      interimText = '';
     };
 
     recognizer.canceled = (s, e) => {

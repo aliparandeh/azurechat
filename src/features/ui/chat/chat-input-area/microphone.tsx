@@ -1,5 +1,5 @@
 import { Mic, Square } from "lucide-react";
-import { Button } from "../../button";
+import {Button} from "@/ui/button";
 
 export const Microphone = (props: {
   isPlaying: boolean;
@@ -8,41 +8,40 @@ export const Microphone = (props: {
   startRecognition: () => void;
   stopRecognition: () => void;
 }) => {
-  const startRecognition = () => {
-    props.startRecognition();
-  };
-
-  const stopRecognition = () => {
-    props.stopRecognition();
+  const toggleRecognition = () => {
+    if (props.isMicrophoneReady) {
+      props.stopRecognition();
+    } else {
+      props.startRecognition();
+    }
   };
 
   return (
-    <>
-      {props.isPlaying ? (
-        <Button
-          size="icon"
-          type="button"
-          variant={"ghost"}
-          onClick={props.stopPlaying}
-        >
-          <Square size={16} />
-        </Button>
-      ) : (
-        <Button
-          type="button"
-          size="icon"
-          variant={"ghost"}
-          onMouseDown={startRecognition}
-          onMouseUp={stopRecognition}
-          onMouseLeave={stopRecognition}
-          className={
-            props.isMicrophoneReady ? "bg-red-400 hover:bg-red-400" : ""
-          }
-          aria-label="Microphone for speech input"
-        >
-          <Mic size={16} />
-        </Button>
-      )}
-    </>
+      <>
+        {props.isPlaying ? (
+            <Button
+                size="icon"
+                type="button"
+                variant={"ghost"}
+                onClick={props.stopPlaying}
+            >
+              <Square size={16}/>
+            </Button>
+        ) : (
+            <Button
+                type="button"
+                size="icon"
+                variant={"ghost"}
+                onClick={toggleRecognition}
+                className={
+                  props.isMicrophoneReady ? "bg-red-400 hover:bg-red-400" : ""
+                }
+                aria-label="Microphone for speech input"
+            >
+              <Mic size={16}/>
+            </Button>
+        )}
+      </>
   );
 };
+
