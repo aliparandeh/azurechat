@@ -89,7 +89,7 @@ class ExtensionState {
     this.isOpened = !this.formState.success;
   }
 
-  public updateOpened(value: boolean) {
+  public async updateOpened(value: boolean) {
     this.isOpened = value;
     if (!value) {
       await RevalidateCache({
