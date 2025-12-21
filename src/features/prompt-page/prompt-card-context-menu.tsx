@@ -64,7 +64,7 @@ const useDropdownAction = (props: { prompt: PromptModel }) => {
       case "delete":
         if (window.confirm(`Are you sure you want to delete ${prompt.name}?`)) {
           await DeletePrompt(prompt.id);
-          RevalidateCache({
+          await RevalidateCache({
             page: "prompt",
           });
         }

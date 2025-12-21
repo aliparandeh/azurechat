@@ -76,7 +76,7 @@ export const addOrUpdatePersona = async (previous: any, formData: FormData) => {
 
   if (response.status === "OK") {
     personaStore.updateOpened(false);
-    RevalidateCache({
+    await RevalidateCache({
       page: "persona",
     });
   } else {

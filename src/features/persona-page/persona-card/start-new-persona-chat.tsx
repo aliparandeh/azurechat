@@ -24,7 +24,7 @@ export const StartNewPersonaChat: FC<Props> = (props) => {
         setIsLoading(true);
         const response = await CreatePersonaChat(persona.id);
         if (response.status === "OK") {
-          RedirectToChatThread(response.response.id);
+          await RedirectToChatThread(response.response.id);
         } else {
           showError(response.errors.map((e) => e.message).join(", "));
         }

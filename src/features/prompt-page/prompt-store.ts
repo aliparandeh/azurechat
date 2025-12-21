@@ -65,7 +65,7 @@ export const addOrUpdatePrompt = async (
 
   if (response.status === "OK") {
     promptStore.updateOpened(false);
-    RevalidateCache({
+    await RevalidateCache({
       page: "prompt",
     });
   } else {

@@ -66,7 +66,7 @@ const useDropdownAction = (props: { persona: PersonaModel }) => {
           window.confirm(`Are you sure you want to delete ${persona.name}?`)
         ) {
           await DeletePersona(persona.id);
-          RevalidateCache({
+          await RevalidateCache({
             page: "persona",
           });
         }

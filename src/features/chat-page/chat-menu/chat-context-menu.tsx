@@ -24,7 +24,7 @@ export const ChatContextMenu = () => {
 
       if (response.status === "OK") {
         setIsLoading(false);
-        RedirectToPage("chat");
+        await RedirectToPage("chat");
       } else {
         showError(response.errors.map((e) => e.message).join(", "));
       }

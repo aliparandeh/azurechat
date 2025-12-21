@@ -23,7 +23,7 @@ export const StartNewExtensionChat: FC<Props> = (props) => {
         setIsLoading(true);
         const chat = await CreateChatWithExtension(extension.id);
         if (chat.status === "OK") {
-          RedirectToChatThread(chat.response.id);
+          await RedirectToChatThread(chat.response.id);
         }
       }}
     >

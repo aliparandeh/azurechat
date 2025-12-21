@@ -66,7 +66,7 @@ const useDropdownAction = (props: { extension: ExtensionModel }) => {
           window.confirm(`Are you sure you want to delete ${extension.name}?`)
         ) {
           await DeleteExtension(extension.id);
-          RevalidateCache({
+          await RevalidateCache({
             page: "extensions",
           });
         }

@@ -80,7 +80,7 @@ class ChatState {
       extensionId: extensionId,
       chatThreadId: this.chatThreadId,
     });
-    RevalidateCache({
+    await RevalidateCache({
       page: "chat",
       type: "layout",
     });
@@ -100,7 +100,7 @@ class ChatState {
       chatThreadId: this.chatThreadId,
     });
 
-    RevalidateCache({
+    await RevalidateCache({
       page: "chat",
     });
 
@@ -261,7 +261,7 @@ class ChatState {
   private async updateTitle() {
     if (this.chatThread && this.chatThread.name === NEW_CHAT_NAME) {
       await UpdateChatTitle(this.chatThreadId, this.messages[0].content);
-      RevalidateCache({
+      await RevalidateCache({
         page: "chat",
         type: "layout",
       });

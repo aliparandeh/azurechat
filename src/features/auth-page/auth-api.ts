@@ -4,8 +4,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import { Provider } from "next-auth/providers/index";
 import { hashValue } from "./helpers";
-import { image } from "@markdoc/markdoc/dist/src/schema";
-import { access } from "fs";
 
 const configureIdentityProvider = () => {
   const providers: Array<Provider> = [];
@@ -45,7 +43,7 @@ const configureIdentityProvider = () => {
         tenantId: process.env.AZURE_AD_TENANT_ID!,
         authorization: {
           params: {
-            scope: "openid profile User.Read", 
+            scope: "openid profile User.Read",
           },
         },
         async profile(profile, tokens) {

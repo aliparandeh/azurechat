@@ -80,7 +80,7 @@ class ExtensionState {
         errors: response.errors,
       };
     } else {
-      RevalidateCache({
+      await RevalidateCache({
         page: "extensions",
       });
     }
@@ -92,7 +92,7 @@ class ExtensionState {
   public updateOpened(value: boolean) {
     this.isOpened = value;
     if (!value) {
-      RevalidateCache({
+      await RevalidateCache({
         page: "extensions",
       });
     }
